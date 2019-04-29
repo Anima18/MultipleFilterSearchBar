@@ -1,0 +1,65 @@
+apply plugin: 'com.android.library'
+apply plugin: 'maven'
+
+android {
+    compileSdkVersion 28
+
+
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support:recyclerview-v7:28.0.0'
+    implementation 'com.android.support:design:28.0.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation 'com.google.code.gson:gson:2.8.2'
+    api 'com.lxj:xpopup:1.6.5'
+    api 'com.github.bmelnychuk:atv:1.2.+'
+    api 'org.zakariya.stickyheaders:stickyheaders:0.7.6'
+    api 'com.github.promeg:tinypinyin:2.0.3'
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            snapshotRepository(url: "http://192.168.60.200:8081/repository/maven-snapshots/") {
+                authentication(userName: project.hasProperty('nexus.user') ? project.property('nexus.user') : System.getenv('NEXUS_USER'),
+                        password: project.hasProperty('nexus.password') ? project.property('nexus.password') : System.getenv('NEXUS_PASSWORD'))
+            }
+
+            pom.version = "1.0.13-SNAPSHOT"
+            pom.artifactId = "multiplefiltermenubar"
+            pom.groupId = "com.anima.multiplefiltermenubar"
+            pom.name = "multiplefiltermenubar"
+            pom.packaging = "aar"
+        }
+    }
+}
+
+uploadArchives.dependsOn build

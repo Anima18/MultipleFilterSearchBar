@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/popup_view_background_color"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <DatePicker
+        android:id="@+id/datePopup_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:layout_above="@+id/singleListPopup_diver"/>
+
+    <View
+        android:id="@+id/singleListPopup_diver"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignTop="@+id/datePopupView_reset"
+        android:background="#dddddd"/>
+
+    <Button
+        android:id="@+id/datePopupView_reset"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="?android:attr/selectableItemBackground"
+        android:text="重置"/>
+
+</RelativeLayout>

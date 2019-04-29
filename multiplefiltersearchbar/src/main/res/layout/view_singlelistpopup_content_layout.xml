@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/popupview_singlelist_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/singleListPopup_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_above="@+id/singleListPopup_diver"/>
+
+    <View
+        android:id="@+id/singleListPopup_diver"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_alignTop="@+id/singleListPopup_reset"
+        android:background="#dddddd"/>
+
+    <Button
+        android:id="@+id/singleListPopup_reset"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="?android:attr/selectableItemBackground"
+        android:text="重置"/>
+
+</RelativeLayout>
